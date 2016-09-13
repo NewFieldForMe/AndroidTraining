@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.view.View
 import android.widget.Toast
+import android.content.Intent
 
 class MainActivity : AppCompatActivity(){
 
@@ -23,6 +24,8 @@ class MainActivity : AppCompatActivity(){
     //region < control event >
     fun buttonOnClick(v: View?) {
         Toast.makeText(this, "Tapped", Toast.LENGTH_SHORT).show()
+        val intent = Intent(application, DrawerActivity::class.java)
+        startActivity(intent)
     }
     //endregion
 }
