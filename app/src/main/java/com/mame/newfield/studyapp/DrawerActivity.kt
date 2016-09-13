@@ -12,8 +12,16 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewParent
+import android.widget.ListView
+import android.widget.TextView
+import android.widget.ArrayAdapter
+import java.text.FieldPosition
+import android.widget.AdapterView
 
 class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+     var names = arrayOf("taro", "jiro", "saburo")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +30,7 @@ class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         setSupportActionBar(toolbar)
 
         val fab = findViewById(R.id.fab) as FloatingActionButton?
-        fab!!.setOnClickListener(View.OnClickListener { view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() })
+        fab!!.setOnClickListener{ view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show() }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout?
         val toggle = ActionBarDrawerToggle(
@@ -32,6 +40,17 @@ class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         val navigationView = findViewById(R.id.nav_view) as NavigationView?
         navigationView!!.setNavigationItemSelectedListener(this)
+
+        val listView = findViewById(R.id.sample_list) as ListView?
+        var titleText = findViewById(R.id.title_sample_list_text) as TextView?
+        listView!!.adapter = ArrayAdapter<String>(applicationContext, android.R.layout.simple_list_item_1, names)
+
+        listView!!.setOnItemClickListener { parent, view, position, id ->
+            var l = parent as ListView?
+            val item: String = l!!.getItemAtPosition(position) as String
+            titleText?.text = item
+        }
+
     }
 
     override fun onBackPressed() {
