@@ -15,6 +15,7 @@ import android.view.MenuItem
 import android.view.ViewParent
 import android.widget.*
 import java.text.FieldPosition
+import android.content.Intent
 
 class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -86,6 +87,8 @@ class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            val intent = Intent(application, CameraOpActivity::class.java)
+            startActivity(intent)
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
