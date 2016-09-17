@@ -6,15 +6,18 @@ import android.widget.Button
 import android.view.View
 import android.widget.Toast
 import android.content.Intent
+import com.beardedhen.androidbootstrap.BootstrapButton
+import com.beardedhen.androidbootstrap.TypefaceProvider
 
 class MainActivity : AppCompatActivity(){
 
     //region < initializer >
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TypefaceProvider.registerDefaultIconSets()
         setContentView(R.layout.activity_main)
 
-        val button: Button = findViewById(R.id.button) as Button
+        val button: BootstrapButton = findViewById(R.id.button) as BootstrapButton
         button.setOnClickListener { view ->
             buttonOnClick(view)
         }
