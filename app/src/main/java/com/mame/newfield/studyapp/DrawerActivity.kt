@@ -13,11 +13,8 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.ViewParent
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.ArrayAdapter
+import android.widget.*
 import java.text.FieldPosition
-import android.widget.AdapterView
 
 class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -99,6 +96,8 @@ class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         } else if (id == R.id.nav_send) {
 
+        } else if (id == R.id.nav_profile) {
+            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout?
