@@ -101,6 +101,8 @@ class DrawerActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelec
 
         } else if (id == R.id.nav_profile) {
             Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show()
+            val intent = Intent(application, ProfileActivity::class.java)
+            startActivity(intent)
         }
 
         val drawer = findViewById(R.id.drawer_layout) as DrawerLayout?
